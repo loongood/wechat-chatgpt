@@ -11,7 +11,7 @@ import {config} from "./config.js";
 const configuration = new Configuration({
   apiKey: config.openai_api_key,
   // basePath:"https://ai.goaii.cc/openai/v1"
-  // basePath: "https://ai.goaii.cc/openai",
+  // basePath: "https://ai.goaii.cc/openai", // 这样的地址是不行的
   basePath: config.api,
 });
 const openai = new OpenAIApi(configuration);
