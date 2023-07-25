@@ -12,4 +12,5 @@ export const config: IConfig = {
   temperature: process.env.TEMPERATURE ? parseFloat(process.env.TEMPERATURE) : 0.6,
   blockWords: process.env.BLOCK_WORDS?.split(",") || [],
   chatgptBlockWords: process.env.CHATGPT_BLOCK_WORDS?.split(",") || [],
+  chatPrivateWiki: process.env.CHAT_PRIVATE_WIKI || ''
 };

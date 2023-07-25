@@ -10,6 +10,7 @@ export interface IConfig {
   blockWords: string[];
   chatgptBlockWords: string[];
   chatPrivateTriggerKeyword: string;
+  chatPrivateWiki:String;
 }
 export interface User {
   username: string,
