@@ -19,12 +19,14 @@ class DB {
       console.log(`用户${username}已存在`);
       return existUser;
     }
+    console.log(`新用户${username}`);
     const newUser: User = {
       username: username,
       chatMessage: [
         {
           role: ChatCompletionRequestMessageRoleEnum.System,
-          content: "You are a helpful assistant."
+          content:"你是一个互联网营销团队客服助手，你只能回答关于互联网营销相关的问题,当客户问你好或你是谁时，请回答我是海风小J,有什么可以帮助你的吗？'"
+          // content: "You are a helpful assistant."
         }
       ],
     };
@@ -106,14 +108,14 @@ class DB {
    */
   public clearHistory(username: string): void {
     const user = this.getUserByUsername(username);
-    if (user) {
-      user.chatMessage = [
-        {
-          role: ChatCompletionRequestMessageRoleEnum.System,
-          content: "You are a helpful assistant."
-        }
-      ];
-    }
+    // if (user) {
+    //   user.chatMessage = [
+    //     {
+    //       role: ChatCompletionRequestMessageRoleEnum.System,
+    //       content: "You are a helpful assistant."
+    //     }
+    //   ];
+    // }
   }
 
   public getAllData(): User[] {

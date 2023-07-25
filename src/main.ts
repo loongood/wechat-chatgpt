@@ -2,6 +2,7 @@ import { WechatyBuilder } from "wechaty";
 import QRCode from "qrcode";
 import { ChatGPTBot } from "./bot.js";
 import {config} from "./config.js";
+import DBUtils from "./data.js";
 const chatGPTBot = new ChatGPTBot();
 
 const bot =  WechatyBuilder.build({
@@ -22,6 +23,10 @@ async function main() {
       );
     })
     .on("login", async (user) => {
+      // DBUtils.getUserByUsername(user.name());
+      // DBUtils.setPrompt(user.name(),'你是一个互联网营销团队客服助手，你只能回答关于互联网营销相关的问题,当客户问你好或你是谁时，请回答我是海风小JJ')
+      // const msgs = DBUtils.getUserByUsername(user.name()).chatMessage
+
       chatGPTBot.setBotName(user.name());
       console.log(`User ${user} logged in`);
       console.log(`私聊触发关键词: ${config.chatPrivateTriggerKeyword}`);
